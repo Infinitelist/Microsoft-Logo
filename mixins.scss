@@ -1,0 +1,46 @@
+/* Rutherford Labbe: 11-06-2023 */
+
+@mixin microsoft_logo_grid {
+
+    body{
+        background-color: $body_color;
+    }
+
+    .grid_container{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+
+        padding: $grid_container_size;
+        background-color: $grid_container_color;
+    }
+
+    .grid_item{
+        padding: $grid_item_size;
+    }
+
+    @for $i from 1 through $grid_item_count {
+        @if $i == 1{
+            .n#{$i}{
+                background-color: $grid_item_color_one;
+            }
+        }@else if $i == 2{
+            .n#{$i}{
+                background-color: $grid_item_color_two;
+            }
+        }@else if $i == 3{
+            .n#{$i}{
+                background-color: $grid_item_color_three;
+            }
+        }@else if $i == $grid_item_count{
+            .n#{$i}{
+                background-color: $grid_item_color_four;
+            }
+        }
+    }
+}
